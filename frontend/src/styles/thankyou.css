@@ -1,0 +1,13 @@
+.thank__you{
+    text-align: center;
+}
+.thank__you span i{
+    font-size: 4rem;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.thank__you h1{
+    font-size: 3.6rem;
+    font-family: var(--subtitle-font-name);
+}
