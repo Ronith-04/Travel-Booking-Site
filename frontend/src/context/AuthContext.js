@@ -119,14 +119,14 @@ export const AuthContextProvider = ({ children }) => {
                 dispatch({ type: "LOGIN_START" });
                 try {
                     // console.log(234)
-                    const response = await axios.get(`http://localhost:4000/api/v1/users/getUser/${userId}`);
+                    const response = await axios.get(`https://travel-booking-site.onrender.com/api/v1/users/getUser/${userId}`);
                     // console.log(2345)
                     // console.log(response.data);
                     dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
                     localStorage.setItem("user", JSON.stringify(response.data.data));
                     localStorage.setItem("booking",[])
                     // Call backend API to get booking by id
-                    // const bookingResponse = await axios.get(`http://localhost:4000/api/v1/bookings/${userId}`); // Assuming the API endpoint for getting a booking by id is `/api/v1/bookings/:id`
+                    // const bookingResponse = await axios.get(`https://travel-booking-site.onrender.com/api/v1/bookings/${userId}`); // Assuming the API endpoint for getting a booking by id is `/api/v1/bookings/:id`
                     // Update user object with booking details
                     // const User = { ...response.data }; // Assuming the booking data is stored in the `data` property of the response
                     // history.replaceState(null, '', window.location.pathname);  // Remove ID from URL
@@ -141,7 +141,7 @@ export const AuthContextProvider = ({ children }) => {
             if (bookingId){
                 try{
                     // Call backend API to get booking by id
-                    const bookingResponse = await axios.get(`http://localhost:4000/api/v1/booking/${bookingId}`); // Assuming the API endpoint for getting a booking by id is `/api/v1/bookings/:id`
+                    const bookingResponse = await axios.get(`https://travel-booking-site.onrender.com/api/v1/booking/${bookingId}`); // Assuming the API endpoint for getting a booking by id is `/api/v1/bookings/:id`
                     // console.log(3,bookingResponse.data)
                     // Update user object with booking details
                     const updatedUser = { booking: bookingResponse.data }; 
