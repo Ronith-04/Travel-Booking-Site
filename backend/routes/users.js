@@ -21,7 +21,7 @@ const googleCallback = async (req, res, next) => {
       if (err || !userinfo) {
         
     //   console.log(11111)
-        return res.redirect("http://localhost:3000"); // Redirect on error or if no user info is provided
+        return res.redirect("https://travel-booking-site.vercel.app/"); // Redirect on error or if no user info is provided
       }
     //   console.log(11111)
   
@@ -47,7 +47,7 @@ const googleCallback = async (req, res, next) => {
             //     {expiresIn:"15d"})
 
       // Redirect with token in query string (use HTTP-only cookies in production)
-      return res.redirect(`http://localhost:3000?id=${user._id}`);
+      return res.redirect(`https://travel-booking-site.vercel.app?id=${user._id}`);
     //   return res.redirect('http://localhost:3000');
     })(req, res, next);
   };
