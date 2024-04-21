@@ -72,12 +72,15 @@ export const deleteUser=async(req,res)=>{
     }
     
 };
+
 // getSingle Userr
 export const getSingleUser=async(req,res)=>{
     const id=req.params.id;
+    // console.log(123)
     try{
         const user=await User.findById(id);
     
+        // console.log(1234,user)
         res
         .status(200)
         .json({
@@ -95,6 +98,7 @@ export const getSingleUser=async(req,res)=>{
 
     }
 };
+
 // getAll Userr
 export const getAllUser=async(req,res)=>{
     try{
@@ -113,3 +117,5 @@ export const getAllUser=async(req,res)=>{
             })
         }
 };
+
+// google  login

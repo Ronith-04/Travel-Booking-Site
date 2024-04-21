@@ -8,6 +8,8 @@ import userRoute from './routes/users.js';
 import authRoute from './routes/auth.js';
 import reviewRoute from './routes/reviews.js';
 import bookingRoute from './routes/bookings.js';
+import passport from "passport";
+import session from "express-session";
 
 dotenv.config()
 const app=express();
@@ -33,6 +35,18 @@ const connect=async()=>{
     }
 
 }
+
+app.use(
+    session({
+      secret: "secret",
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true},
+})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.enable("trust proxy");
 
 // middleware
 app.use(express.json());

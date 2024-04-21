@@ -4,6 +4,9 @@ import {NavLink, Link,useNavigate} from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import'./Header.css';
 import { AuthContext } from "./../../context/AuthContext";
+// import { IoCartOutline } from "react-icons/io5";
+import { FaSuitcase } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";;
 
 const nav__links=[
     {
@@ -17,7 +20,11 @@ const nav__links=[
     {
         path:'/Tours',
         display:"Tours"
-    }
+    },
+    // {
+    //     path:'/Profile',
+    //     display:"Profile"
+    // }
 
 ]
 const Header = () => {
@@ -28,6 +35,7 @@ const Header = () => {
 
     const logout=()=>{
         dispatch({type:"LOGOUT"});
+        localStorage.clear()
         navigate('/home');
     }
 
@@ -78,7 +86,8 @@ const Header = () => {
                         {
                             user?(
                             <>
-                            <h5 className="mb-0">{user.username}</h5>
+                            <h5 className="mb-0"><Link to="/Profile" className="profile"><FaUser /></Link></h5>
+                            <Link to="/Cart" className="cart"><FaSuitcase /></Link>
                             <Button className="btn primary__btn" onClick={logout}>
                                 Logout
                             </Button>

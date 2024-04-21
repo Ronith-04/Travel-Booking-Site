@@ -115,6 +115,7 @@ const Home = () => {
             </Row>
         </Container>
     </section>
+    
     {/*===================gallery section=========*/}
     <section>
         <Container>
@@ -147,12 +148,7 @@ const Home = () => {
             </Row>
         </Container>
     </section>
-
     <NewsLetter/>
-    
-
-
-    
     </>
     );
 }

@@ -9,6 +9,7 @@ const Booking = ({tour, avgRating}) => {
   const {price, reviews,title}=tour;
   const navigate=useNavigate();
   const {user}=useContext(AuthContext);
+  // console.log(user)
   const [booking,setBooking]=useState({
     userId:user && user._id,
     userEmail:user && user.email,
@@ -30,7 +31,7 @@ const Booking = ({tour, avgRating}) => {
   const totalAmount=Number(price)*Number(booking.guestSize)+Number(serviceFee)
   const handleClick= async e=>{
     e.preventDefault();
-    console.log(booking)
+    // console.log(booking)
     try{
       if(!user || user===undefined || user===null){
         alert("Please Sign-in")
@@ -45,6 +46,19 @@ const Booking = ({tour, avgRating}) => {
           body:JSON.stringify(booking),
         })
         const result=await res.json();
+        const existingBookingData = localStorage.getItem("booking");
+
+        // Parse the existing data if it exists, or initialize to an empty array
+        let bookingData = existingBookingData ? JSON.parse(existingBookingData) : [];
+        
+        // Assuming result.data is the new data you want to append
+        bookingData.push(result.data);
+        
+        // Convert the updated array back to a JSON string
+        const updatedBookingData = JSON.stringify(bookingData);
+        
+        // Store the updated booking data back into local storage
+        localStorage.setItem("booking", updatedBookingData);
         if (res.ok){
           navigate("/thank-you")
         }else{

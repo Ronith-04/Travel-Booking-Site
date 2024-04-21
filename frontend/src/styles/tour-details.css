@@ -57,6 +57,9 @@
     color: var(--secondary-color);
     cursor: pointer;
 }
+.rating__group span:hover{
+    color: var(--text-color);
+}
 .tour__reviews h4{
     margin-bottom: 3rem;
 }
@@ -129,3 +132,8 @@
         font-size: 1rem;
     }
 }
+
+@media only screen and (max-width:768px){
+    
+}
+

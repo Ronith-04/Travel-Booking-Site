@@ -26,6 +26,21 @@
     color: var(--heading-color);
     display: none;
 }
+.profile{
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+.cart{
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+.profile:hover,.cart:hover{
+    color: var(--primary-color);
+}
 
 .sticky__header{
     width: 100%;

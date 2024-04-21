@@ -33,6 +33,8 @@ export const register= async(req,res)=>{
             username:req.body.username,
             email:req.body.email,
             password:hash,
+            phone:req.body.phone,
+            city:req.body.city,
             photo:req.body.photo,
         })
         await newUser.save();
@@ -55,8 +57,9 @@ export const login= async(req,res)=>{
     const email=req.body.email;
     
     try{
+        // console.log(123)
         const user=await User.findOne({email});
-
+       
         // if user doesnt exist
         if(!user){
             return res.status(404).json({success:false,message:
@@ -71,7 +74,7 @@ export const login= async(req,res)=>{
 
         const {password, role, ...rest}=user._doc
 
-        // crate jwt token
+        // create jwt token
         const token=jwt.sign({
             id:user._id,role:user._role},
             process.env.JWT_SECRET_KEY,
@@ -94,8 +97,7 @@ export const login= async(req,res)=>{
         .status(500)
         .json({
             success:false,
-            message:
-            "Failed to login!"
+            message: error.message
         })
 
         

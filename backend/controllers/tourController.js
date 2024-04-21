@@ -73,13 +73,14 @@ export const deleteTour=async(req,res)=>{
     }
     
 };
+
 // getSingle tourr
 export const getSingleTour=async(req,res)=>{
     const id=req.params.id;
-    console.log(4,id);
+    // console.log(id);
     try{
         const tour=await Tour.findById(id).populate('reviews');
-        console.log(5,tour);
+        // console.log(tour);
         res
         .status(200)
         .json({
@@ -97,11 +98,12 @@ export const getSingleTour=async(req,res)=>{
 
     }
 };
+
 // getAll tourr
 export const getAllTour=async(req,res)=>{
     // for pagination
     const page=parseInt(req.query.page);
-    console.log(page)
+    // console.log(page)
     try{
         const tours= await Tour.find({})
         .populate('reviews')

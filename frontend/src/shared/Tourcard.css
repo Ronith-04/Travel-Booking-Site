@@ -93,3 +93,14 @@
     }
 
 }
+
+@media only screen and  (max-width:576px){
+    .booking__btn a{
+        font-size: 0.8rem;
+    }
+    .booking__btn{
+        padding: .2rem 0.5rem !important;
+        margin-left: 200px;
+    }
+
+}

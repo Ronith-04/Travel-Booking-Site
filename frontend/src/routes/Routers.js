@@ -9,6 +9,9 @@ import SearchResultList from "./../pages/SearchResultList";
 import ThankYou from "./../pages/ThankYou";
 import About from "./../pages/About";
 import Gallery from "./../pages/Gallery";
+import Profile from "./../pages/Profile"; 
+import Auth from "./../pages/Auth";
+import Cart from "../pages/Cart/Mytours";
 
 
 const Routers = () => {
@@ -16,7 +19,10 @@ const Routers = () => {
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/Home' element={<Home/>}/>
+            <Route path='/Auth' element={<Auth/>}/>
+            <Route path='/Cart' element={<Cart/>}/>
             <Route path='/About' element={<About/>}/>
+            <Route path='/Profile' element={<Profile/>}/>
             <Route path='/Gallery' element={<Gallery/>}/>
             <Route path='/Login' element={<Login/>}/>
             <Route path='/Register' element={<Register/>}/>

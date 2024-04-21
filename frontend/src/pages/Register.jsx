@@ -12,7 +12,9 @@ const Register = () => {
     const [credentials,setCredentials]=useState({
         username:undefined,
         email:undefined,
-        password:undefined
+        password:undefined,
+        phone:undefined,
+        city:undefined
       })
 
     const {dispatch}=useContext(AuthContext);
@@ -51,8 +53,6 @@ const Register = () => {
             console.error("Error during registration:", error);
             alert("An error occurred during registration. Please try again later.");
         }
-        
-
     }
     return <>
     <section>
@@ -76,7 +76,13 @@ const Register = () => {
                                     <input type="email" placeholder="Email" required id="email"  onChange={handleChange}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <input type="password" placeholder="password" required id="password"  onChange={handleChange}/>
+                                    <input type="password" placeholder="Password" required id="password"  onChange={handleChange}/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <input type="number" placeholder="Phone" required id="phone"  onChange={handleChange}/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <input type="text" placeholder="City" required id="city"  onChange={handleChange}/>
                                 </FormGroup>
                                 <Button className="btn secondary__btn auth__btn" onClick={handleClick}>Create Account</Button>
                             </Form>
